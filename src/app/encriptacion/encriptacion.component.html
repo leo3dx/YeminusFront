@@ -1,0 +1,40 @@
+<div class="container-fluid text-center bg-primary text-white">
+    <h1>Encriptación</h1>
+</div>
+<div class="container">
+    <form class="form-control">
+        <div class="row">
+            <div class="col">
+                <label for="">Clave</label>
+                <input type="number" name="claveEncriptar" [(ngModel)]="claveEncriptar" class="form-control" placeholder="Clave a encriptar" ngModel required="required">
+            </div>
+            <div class="col">
+                <label for="">Frase</label>
+                <input type="text" name="fraseEncriptar" [(ngModel)]="fraseEncriptar" class="form-control" placeholder="Frase a encriptar" ngModel required="required">
+            </div>
+            <div class="col">
+                <button type="button" (click)="encriptarFrase()" class="btn btn-primary mt-4">Encriptar</button>
+            </div>
+        </div>
+        <div class="col">
+            <span class="fs-4">Frase encriptada: {{fraseEncriptada}}</span>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col">
+                <label for="">Clave</label>
+                <input type="number" name="claveDesencriptar" [(ngModel)]="claveDesencriptar" class="form-control" placeholder="Clave a desencriptar" ngModel>
+            </div>
+            <div class="col">
+                <label for="">Frase</label>
+                <input class="form-control" name="fraseDesencriptar" [(ngModel)]="fraseDesencriptar" type="text" placeholder="Frase a desencriptar" ngModel required="required">
+            </div>
+            <div class="col">
+                <button type="button" (click)="desencriptarFrase()" class="btn btn-primary mt-4">Desencriptar</button>
+            </div>
+        </div>
+        <div class="col">
+            <span class="fs-4">Frase desencriptada: {{fraseDesencriptada}}</span>
+        </div>
+    </form>
+</div>

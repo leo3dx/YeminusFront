@@ -1,0 +1,30 @@
+<div class="container-fluid text-center bg-primary text-white">
+    <h1>Lista de productos</h1>
+</div>
+<div class="container-fluid text-center">
+    <button class="btn btn-danger fs-4 m-2" (click)="agregarProducto()">+</button>
+    <div class="table-responsive">
+        <table class="table table-hover text-center">
+            <thead class="bg-primary text-white">
+                <tr>
+                    <th>Imagen</th>
+                    <th>Codigo</th>
+                    <th>Descripción</th>
+                    <th>Lista de precios</th>
+                    <th>Porcentaje de iva</th>
+                    <th>¿Se vende?</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let producto of productos" (dblclick)="editarProducto(producto.codigo)" class="align-middle" style="cursor: pointer;">
+                    <td><img src={{producto.imagen}} alt="" width="150px" style="border: 1px; border-radius: 100px;"></td>
+                    <td>{{producto.codigo}}</td>
+                    <td>{{producto.descripcion}}</td>
+                    <td> <span *ngFor="let precio of producto.listaDePrecios">${{precio.precio}} </span></td>
+                    <td>{{producto.porcentajeIva}} %</td>
+                    <td>{{producto.productoParaLaVenta == true ? 'Si' : 'No'}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

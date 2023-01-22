@@ -1,0 +1,63 @@
+<div class="container-fluid text-center bg-primary text-white">
+    <h1>Agregar producto</h1>
+</div>
+<div class="container">
+    <form class="form-control" #f="ngForm" (ngSubmit)="f.form.valid && onGuardar(f)">
+        <div class="row">
+            <div class="col">
+                <label for="">Codigo</label>
+                <input type="text" name="codigo" class="form-control"  ngModel required="required">
+            </div>
+            <div class="col">
+                <label for="">Descripción</label>
+                <input type="text" name="descripcion" class="form-control" ngModel required="required">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label for="">Imagen</label>
+                <input type="text" name="imagen" class="form-control" placeholder="Url de imagen" ngModel>
+            </div>
+            <div class="col">
+                <label for="">Iva</label>
+                <input class="form-control" name="iva" type="number" placeholder="%" ngModel required="required">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col d-flex align-content-center flex-wrap">
+                <div class="form-check">
+                    <input class="form-check-input" name="venta" type="checkbox"  ngModel>
+                    <label class="form-check-label" for="gridCheck">
+                    Valido para la venta
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row p-2">
+            <button type="button"  class="btn btn-danger fs-4" (click)="agregarPrecio()">+</button>
+        </div>
+        <div class="row">
+            <div class="col">
+                <span class="align-middle">Precio</span>
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" [(ngModel)]="precio" [ngModelOptions]="{standalone: true}">
+            </div>
+        </div>
+        <div class="row mt-2" *ngFor="let precio of precios; let i = index">
+            <div class="col-2">
+                <span>{{precio}}</span>
+            </div>
+            <div class="col">
+                <button type="button" class="btn btn-warning" (click)="eliminarPrecio(i)">-</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div style="width:85px;" class="ms-auto mt-2">
+                    <input class="btn btn-success" type="submit" value="Guardar">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
